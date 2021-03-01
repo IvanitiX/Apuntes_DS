@@ -68,12 +68,40 @@ La GoF definió 4 elementos esenciales en un patrón de diseño:
 - *Las consecuencias*: Aunque no se digan de ellas, son vitales para evaluar diseños alternativos y para entender los costos y beneficios de implantarse en nuestro sistema. Estas consecuencias conciernen usualmente al espacio y tiempo, la implementación y el lenguaje a usar, y el impacto en la portabilidad, flexibilidad y extensibilidad.
 
 En la actualidad ya se provee de la siguiente plantilla para poder describir un patrón:
+
 ![Plantilla](img/Plantilla.png)
 
-### 1.1.5 Un ejemplo práctico : Modelo-Vista-Controlador
+### 1.1.5 > Un ejemplo práctico : Modelo-Vista-Controlador
+¿Recuerdas cuándo en PDO vimos MVC? Pues resulta que es una terna que se vió en el lenguaje `SmallTalk` para construir Interfaces Gráficas de Usuario. Recordemos que la idea de hacer esto era separar el objeto o modelo de la aplicación de su representación o vista. Además, para controlar la interacción con la presentación visual y que sirva de intermediario con el modelo, entra en escena el Controlador. Con ello aumentaremos su flexibilidad y reusabilidad.
 
-## 1.2 ¿Cómo resolvemos problemas de disñeo usando patrones de diseño?
+>Nótese que la terna es totalmente independiente entre ellos. Por ejemplo, una Web puede cumplirlo (Siendo HTML y CSS quien renderice la vista, y funciones JS/PHP para modificar la Base de Datos), o Java (con Swing en la Vista y un package dedicado al Modelo)
+
+![Ejemplo MVC](img/MVC.png)
+
+El GoF utiliza todo esto paraidentificar e introducir los primeros tres patrones de su libro: [Observer](#13-estudio-del-catálogo-gof-de-patrones-de-diseño) , [Composite](#13-estudio-del-catálogo-gof-de-patrones-de-diseño) y [Strategy](#13-estudio-del-catálogo-gof-de-patrones-de-diseño).
+Otros patrones podrían ser el [Factory](#13-estudio-del-catálogo-gof-de-patrones-de-diseño) para especificar el Controlador; o el [Decorator](#13-estudio-del-catálogo-gof-de-patrones-de-diseño), que añade desplazamiento a una vista.
 
 
+## 1.2 ¿Cómo resolvemos problemas de diseño usando patrones de diseño?
+
+"Los patrones de diseño resuelven algunos de los problemas cotidianos que los diseñadores de sistemas orientados a objetos encaran, y de maneras distintas" ~ `Gamma, Helm, Johnson y Vlissides, Design Patterns`
+
+El proceso se basaría en estos pasos:
+1. *Encuentra los objetos apropiados*: Al usar patrones de diseño pueden aparecer clases que no forman parte de las clases extraídas del análisis, ya que viene dado a la hora de querer hacer un sistema más flexible y reutilizable.
+2. *Considera distintas granularidades*: Hay objetos que representan un sistema, objetos que han de ser instanciados una sola vez o muchos objetos similares pero con poco contenido.
+3. *Especifica la interfaz de un objeto*: Hay muchos patrones de diseño que se relacionan con la ligadura dinámica de la orientación a objetos y el hecho de que los objetos con una misma interfaz o parte común se pueden intercambiar.
+4. *Programa en función de las interfaces, NO de las implementaciones*: Gracias a las interfaces, podemos disminuir el acoplamiento entre los subsistemas. Aunque puede que no sea necesario en lenguajes no tipados como  `Ruby`, en otros lenguajes tipados como `Java` o `C++` si permite que se pueda valer de ello para adaptarse a los tipos estáticos.
+
+> "En todo caso, siempre podemos relacionarlos objetos no por la implementacion de los metodos sino por la interfaz (o signatura) de estos metodos. Gracias a esto, los objetos clientes de estos objetos notienen que saber nada sobre la implementacion de los metodos a los que invocan, lesbasta saber que el metodo forma parte de la interfaz del objeto.
+> 
+>  Incluso tampoco tiene por que conocer el tipo especıfico (tipo dinámico) de esos objetos. Los patrones creaciones tienen la funcion  de  permitir  este  desacoplamiento, con distintas propuestas para asociar una interfaz con la implementacion concreta en el momento de instanciar un objeto." ~ `Apuntes de DS`
+
+1. *Saca el máximo partido a la reusabilidad del código* Aquí algunos tips:
+
+   a. *Favorece la composición (caja negra) sobre la herencia (caja blanca)*: Da igual que la situación favorezca la clasificación "Es un..."; es mejor no abusar de la herencia, ya que aumenta la dependencia del código con respecto a las clases padre e hijas.
+
+   b. *Usa la delegación como alternativa extrema a la composición que sustituya a la herencia* : Hay casos en los que es mejor delegar la responsabilidad que tiene el objeto receptor a objetos de otras clases, con tal de aumentar la reusabilidad.
+
+   c. *Usa tipos parametrizables como alternativa a la herencia* : Las plantillas permiten reutilizar código en lenguajes tipados que permiten crear clases genéricas especificando como parámetro el tipo de los objetos que se usarán. Así, en tiempo de compilación se usará un objeto en base a esa plantilla y el tipo especificado.
 
 ## 1.3 Estudio del catálogo *GoF* de patrones de diseño 
