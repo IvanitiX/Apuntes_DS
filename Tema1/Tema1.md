@@ -46,6 +46,7 @@ La tercera, según el GoF, establece dos criterios:
 <br>
 
 Así, los patrones se verían así:
+
 ![Tabla Patrones](img/TablaPatronesGof.png)
 
 <br>
