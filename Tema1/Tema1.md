@@ -46,11 +46,13 @@ La tercera, según el GoF, establece dos criterios:
 <br>
 
 Así, los patrones se verían así:
+
 ![Tabla Patrones](img/TablaPatronesGof.png)
 
 <br>
 
 La última clasificación es cómo los patrones son comprendidos, que se puede ver en este grafo:
+
 ![Grafo de patrones](img/GrafoPatrones.png)
 
 ### 1.1.3 > ¿Esto no se parece un poco a los *frameworks*?
