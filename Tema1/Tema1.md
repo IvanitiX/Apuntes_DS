@@ -46,7 +46,6 @@ La tercera, según el GoF, establece dos criterios:
 <br>
 
 Así, los patrones se verían así:
-
 ![Tabla Patrones](img/TablaPatronesGof.png)
 
 <br>
@@ -79,8 +78,8 @@ En la actualidad ya se provee de la siguiente plantilla para poder describir un 
 
 ![Ejemplo MVC](img/MVC.png)
 
-El GoF utiliza todo esto paraidentificar e introducir los primeros tres patrones de su libro: [Observer](#13-estudio-del-catálogo-gof-de-patrones-de-diseño) , [Composite](#13-estudio-del-catálogo-gof-de-patrones-de-diseño) y [Strategy](#13-estudio-del-catálogo-gof-de-patrones-de-diseño).
-Otros patrones podrían ser el [Factory](#13-estudio-del-catálogo-gof-de-patrones-de-diseño) para especificar el Controlador; o el [Decorator](#13-estudio-del-catálogo-gof-de-patrones-de-diseño), que añade desplazamiento a una vista.
+El GoF utiliza todo esto paraidentificar e introducir los primeros tres patrones de su libro: [Observer](#observer--observador) , [Composite](#composite--componedor) y [Strategy](#strategy--estrategia).
+Otros patrones podrían ser el [Factory](#factorías) para especificar el Controlador; o el [Decorator](#decorator--decorador), que añade desplazamiento a una vista.
 
 
 ## 1.2 ¿Cómo resolvemos problemas de diseño usando patrones de diseño?
@@ -106,3 +105,39 @@ El proceso se basaría en estos pasos:
    c. *Usa tipos parametrizables como alternativa a la herencia* : Las plantillas permiten reutilizar código en lenguajes tipados que permiten crear clases genéricas especificando como parámetro el tipo de los objetos que se usarán. Así, en tiempo de compilación se usará un objeto en base a esa plantilla y el tipo especificado.
 
 ## 1.3 Estudio del catálogo *GoF* de patrones de diseño 
+
+### 1.3.1 > Patrones creacionales.
+#### Factorías
+Es un objeto con algún método para crear objetos. Sólo hay que preocuparse de que se diga qué se quiere, sin importar el tipo específico. Este concepto se concreta sin embrago de forma distinta según el tipo de lenguaje orientado a objetos:
+- En lenguajes **OO puros como Ruby o Smalltalk, donde todo se considera un objeto, esta definición contempla por tanto a la mas simple de las factorías, la que crea una instancia de la propia clase, pues es un método más
+- En lenguajes **OO híbridos** como Java o C++, las  factorıas  no pueden considerarse generalizaciones de los llamados “constructores”, pues estos son metodos especiales que, ademÁs de seguir reglas sintácticas diferentes al resto de los métodos,no permiten polimorfismo, debiéndose explicitar la clase concreta que se quiere crear.
+  
+#### Factoría abstracta  
+Es un patrón basado en factorías recomendado cuando en una aplicación tenemos líneas, temáticas o familias paralelas de clases y se prevé que se puedan añadir más líneas con variaciones. No se recomienda si se piensa agregar nuevas clases a líneas existentes.
+Con este patrón se podrá elegir una familia de entre las definidas sin que cambie el código al cambiar de familia, y además el cliente solo debe saber cómo implemetar la interfaz.
+
+Hay dos formas en las que se pueden crear los objetos por las factorías ,mediante métodos factoría o mediante delegación (prototipos), las cuales están reflejadas en otros dos patrones: [Método Factoría](#método-factoría) y [Prototipo](#prototipo), respectivamente.
+
+![FactoriaAbstracta](img/FactoriaAbstracta.png)
+
+#### Método factoría 
+Es un patrón en el que un objeto usa un método donde, dado un tipo de clase que se define en la factoría, se genera otro objeto; en lugar de llamar a los constructores. Este aprovecha la ligadura dinámica de los lenguajes OO puros para construir el objeto en la subclase adecuada.
+
+![MetodoFactoria](img/MetodoFactoria.png)
+
+#### Prototipo
+ Es un patrón donde se crean objetos a partir de otros objetos, usando para ello métodos de clonación. De cada clase se debería tener un objeto prototipo para ser clonado. Esto nos proporciona flexibilidad, ya que no tenemos que crear la jerarquía de clases factoría sino que basta con tener una clase factoría que tenga un sólo método para crear cada objeto de la factoría considerando que las clases de todos los objetos que se quieren reutilizaren la aplicación heredan todas de la clase “Prototype”.
+
+![Prototipo](img/Prototipo.png)
+
+### 1.3.2 > Patrones estructurales
+#### Composite / Componedor
+
+#### Decorator / Decorador
+
+### 1.3.3 > Patrones de comportamiento
+#### Observer / Observador
+
+#### Strategy / Estrategia
+
+
